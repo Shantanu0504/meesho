@@ -1,8 +1,6 @@
 pipeline {
 	agent any 
-	parameters {
-  choice choices: ['DEV', 'UAT', 'QA', 'PROD'], description: 'parameterized', name: 'Environment'
-}
+	
 	stages {
 	    stage('Checkout') {
 	        steps {
@@ -10,10 +8,10 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/guru/slaveDD2/apache-maven-3.9.0/bin/mvn install'
+			  sh '/home/shantanu/Downloads/Devops/apache-maven-3.9.6-bin/apache-maven-3.9.6/bin /mvn install'
 	                 }}
 		stage('Deployment'){
 		   steps {
-		sh 'cp target/flipkart.war /home/swapnil/Documents/DevOps-Software/apache-tomcat-9.0.79/webapps'
+		sh 'cp target/meesho.war /home/shantanu/Downloads/Devops/apache-tomcat-9.0.82/webapps'
 			}}	
 }}
